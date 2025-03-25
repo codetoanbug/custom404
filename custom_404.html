@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Không Tìm Thấy</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            color: white;
+        }
+        .error-code {
+            font-size: 120px;
+            font-weight: bold;
+            animation: blink 1.5s infinite;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+        .message {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #ff4444;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 18px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .back-btn:hover {
+            transform: scale(1.1);
+            background-color: #ff6666;
+        }
+        /* Hiệu ứng nhấp nháy */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        /* Hiệu ứng hạt nổi */
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: float 5s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.8; }
+            50% { opacity: 0.4; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code">404</div>
+        <div class="message">Oops! Trang bạn tìm không tồn tại.</div>
+        <a href="https://www.facebook.com/codetoanbug" class="back-btn">Quay lại Facebook</a>
+    </div>
+
+    <!-- Tạo hiệu ứng hạt nổi -->
+    <script>
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 5000);
+        }
+        setInterval(createParticle, 200);
+    </script>
+</body>
+</html>
